@@ -1,0 +1,108 @@
+import mongoose from "mongoose";
+
+const Schema = mongoose.Schema;
+
+const MaterialSchema = new Schema({
+    materialname:{
+        type:String,
+        required:true
+    },
+    code:{
+        type:String,
+        required:true
+    },
+    grade:{
+        type:String,
+        required:null
+    },
+    materialquantity:{
+        type:Number,
+        default:0
+    },
+    averagePrice:{
+        type:Number,
+        default:0
+    },
+    unit:{
+        type:String,
+        default:null
+    },
+    under:{
+        type:String,
+        default:'Primary'
+    },
+    hsnsac:{
+        type:String,
+        default:null
+    },
+    hsndetail:{
+        type:String,
+        default:null
+    },
+    intergratedTax:{
+        type:Number,
+        default:null
+    },
+    centralTax:{
+        type:Number,
+        default:null
+    },
+    stateTax:{
+        type:Number,
+        default:null
+    },
+    cess:{
+        type:Number,
+        default:null
+    },
+    serviceType:{
+        type:String,
+        default:'Goods'
+    },
+    comments:{
+        type:String,
+        default:null
+    },
+    inventory:[{
+        inventoryname:{
+            type:String,
+            default:null
+        },
+        date:{
+            type:String,
+            default:null
+        },
+        quantity:{
+            type:Number,
+            default:0
+        },
+        price:{
+            type:Number,
+            default:0
+        },
+        Specifications:{
+            type:String,
+            default:null
+        },
+        createdAt:{
+            type:Date,
+            default:Date.now()
+    
+        },
+        status:{
+            type:Number,
+            default:1
+        }
+    }],  
+    createdAt:{
+        type:Date,
+        default:Date.now()
+
+    },
+    status:{
+        type:Number,
+        default:1
+    }
+});
+
+export default mongoose.model('material',MaterialSchema)
